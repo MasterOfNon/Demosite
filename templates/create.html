@@ -1,0 +1,18 @@
+
+{% extends 'blank_layout.html' %}<!-- extends tag in django html is used for inheretience-->
+{% block content%} <!--here block is the tag and content is the name of the block : this is used for showing the child class contents through overriding-->
+<h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bolder;"> Create </h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{frm.as_p}} <!--to print as para <p>-->
+    <!--this is without the use of form 
+    <label for ='name'> Name </label>
+    <input id="name" type="text" name="fname" placeholder="Name" required>
+    <label for ='year'> Year </label>
+    <input id="year" type="date" name="year" placeholder="Year">
+    <label for ='summary'> Summary </label>
+    <input id="summary" type="text" name="summary" placeholder="Summary for the movie">-->
+    
+    <button style="background-color: rgb(49, 241, 49); border-radius: 5px;"> submit </button>
+</form>
+{%endblock content %}

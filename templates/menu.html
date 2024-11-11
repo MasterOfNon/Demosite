@@ -1,0 +1,7 @@
+<h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: blueviolet; font-stretch: ultra-expanded;"> Main menu </h1>
+<ul style="display:grid; color: rgb(5, 26, 252);">
+    <li> <a href="{% url 'create' %}">create movies</a></li> <!--  is used for refereing the html files here create name is given from the url files-->
+    <li> <a href="{% url 'list'  %}">list movies</a></li>
+    <li> <a href="{% url 'signup'  %}">signup</a></li>
+    <li> <a href = "{% url 'logout'%}" >logout </a></li>
+</ul>

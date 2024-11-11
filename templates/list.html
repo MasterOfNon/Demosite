@@ -1,0 +1,49 @@
+{% extends 'blank_layout.html'%}
+{% load static %}
+{%block content %}
+<h1 style="color: #f44336; font-weight: 600;"> Recent visited movies</h1>
+
+{% for movie_obj in recent_m_set %}
+<ul>
+    <li> <p>{{movie_obj.title}}</p></li>
+</ul>
+
+{% endfor %}
+<h1 style="color: blue; font-weight: bolder; font-family: Arial, Helvetica, sans-serif;"> List Movies times visisted:{{visits}}</h1>
+<table> 
+    <tr> <th> Title </th> <th> Year of release </th> <th> Summary: </th> <th> edit/delete </th>  <th>   <th> </th><th>              Poster</th> </tr>
+{% for movie_obj in movies %}
+
+    <tr>  <td>{{movie_obj.title|upper}} 
+          </td>
+         <td> <p>{{movie_obj.year}}</p></td>
+         <td><p style="margin-left: 20px;margin-top: 20px; height: 150px; width: 100px">{{movie_obj.summary| default:"not currently available"}}</p> </td>
+         <!-- <td> <a href="{% url 'edit' movie_obj.id %}" > edit </a></td>
+         <td> <a href="{% url 'delete' movie_obj.id %}" > delete  </a></td>
+         or the below code for better viewing-->
+         <td> <button onclick = "window.location.href='{% url 'edit' movie_obj.id %}'" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;" >edit </button> </td>
+         <td>
+            <button onclick="window.location.href='{% url 'delete' movie_obj.id %}'" style="padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Delete
+            </button>
+        
+         <td> {%if movie_obj.poster %}
+            <img src="{{movie_obj.poster.url}}" style =" margin-left: 100px ; height: 500px; width: 250px;"alt="unable to load poster!!!!!">
+          {% endif %}
+        </td>
+    </tr>
+
+<!--<img src="{% static 'images/' %}{{movie_obj.img}}" >-->
+{% endfor %} 
+
+
+</table>
+
+<!--{% if movie_obj.Success %}
+<p style="color: aquamarine; font-size: larger; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><b>it was a box office film</b></p>
+{% else %}
+<p style="color: rgb(255, 2, 2); font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: larger;"> nha it was a flop!!!</p>
+{% endif %}-->
+
+
+{% endblock content %}

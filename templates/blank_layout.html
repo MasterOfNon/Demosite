@@ -1,0 +1,7 @@
+{% load static %}
+<h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bolder; color: aqua; margin-left: 20px;"> Movie Project</h1>
+<img src="{% static 'images/baki.jpg' %}">
+{% include 'menu.html' %} <!-- importing menu html file-->
+{% block content%} <!--here block is the tag and content is the name of the block : this is used for showing the child class contents through overloading-->
+<p> content here</p>
+{% endblock content %}
